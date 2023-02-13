@@ -13,8 +13,12 @@ import Notification from "./Notification";
 const fs = require('fs');
 
 
-const Post = ({ loggeduser, user, socket }) => {
+const Post = ({ loggeduser, user, socket,handleRefreshData }) => {
   const [notification, setNotification] = useState([])
+  
+  const refresh = () => {
+    handleRefreshData(true)
+  }
 
   useEffect(() => {
     if (socket.current) {
@@ -53,6 +57,7 @@ const Post = ({ loggeduser, user, socket }) => {
     }).catch(err => {
       console.log(err)
     })
+     refresh()
   }
 
   const handleSuperLike = () => {
@@ -67,6 +72,7 @@ const Post = ({ loggeduser, user, socket }) => {
     }).catch(err => {
       console.log(err)
     })
+     refresh()
   }
 
   const handleBlock = () => {
@@ -76,6 +82,7 @@ const Post = ({ loggeduser, user, socket }) => {
       console.log(err)
     })
     console.log(`${loggeduser.name} blocked , ${user.name}`)
+     refresh()
   }
 
   return (
