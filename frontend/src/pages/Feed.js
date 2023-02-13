@@ -44,6 +44,11 @@ const Feed = () => {
       }
 
    }, [loggeduserID, shouldFetch])
+   
+   const handleRefreshData = () => {
+      setShouldFetch(true);
+      console.log("refresh")
+   }
 
    return (
       <div className="h-screen flex justify-center overflow-y-scroll bg-white rounded-lg shadow-lg">
@@ -53,7 +58,7 @@ const Feed = () => {
                (
                   users.map((user) => {
                      return (
-                        <Post key={user._id} user={user} loggeduser={loggeduser} socket={socket} />
+                        <Post key={user._id} user={user} loggeduser={loggeduser} socket={socket} handleRefreshData={handleRefreshData}/>
                      )
                   })
                ) : (
