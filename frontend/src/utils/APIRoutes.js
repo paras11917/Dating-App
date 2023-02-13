@@ -1,0 +1,10 @@
+export const host = "http://localhost:5000"
+export const loginRoute = `${host}/api/auth/login`
+export const registerRoute = `${host}/api/auth/register`
+export const logoutRoute = `${host}/api/auth/logout`
+export const likeRoute = `${host}/api/auth/like`
+export const superlikeRoute = `${host}/api/auth/superlike`
+export const blockRoute = `${host}/api/auth/block`
+export const getAllRoute = `${host}/api/auth/allusers/`
+export const imageRoute = `${host}/api/auth/image/:name`
+export const userRoute = `${host}/api/auth/user/`
